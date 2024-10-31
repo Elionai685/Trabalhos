@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Lista de Convidados</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Convidados</h1>
+        <input type="text" id="nome" placeholder="Digite o nome do convidado">
+        <button onclick="adicionarConvidado()">Adicionar Convidado</button>
+        <button onclick="exibirLista()">Exibir Lista</button>
+
+        <h2>Lista de Convidados</h2>
+        <ul id="listaConvidados"></ul>
+
+        <h2>Editar Convidado</h2>
+        <input type="text" id="nomeAntigo" placeholder="Nome atual">
+        <input type="text" id="nomeNovo" placeholder="Novo nome">
+        <button onclick="editarConvidado()">Editar Convidado</button>
+
+        <h2>Excluir Convidado</h2>
+        <input type="text" id="nomeExcluir" placeholder="Nome a excluir">
+        <button onclick="excluirConvidado()">Excluir Convidado</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

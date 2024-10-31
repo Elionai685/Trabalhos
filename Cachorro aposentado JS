@@ -1,0 +1,59 @@
+let energy = 100;
+let hunger = 0;
+let mood = "Feliz";
+
+function updateDogInfo() {
+    document.getElementById("dog-energy").innerText = "Energia: " + energy;
+    document.getElementById("dog-hunger").innerText = "Fome: " + hunger;
+    document.getElementById("dog-mood").innerText = "Humor: " + mood;
+
+    // Verifica condições
+    if (energy <= 0) {
+        mood = "Cansado";
+        document.getElementById("message").innerText = "Rex está muito cansado e não pode brincar!";
+    } else if (hunger >= 100) {
+        mood = "Feliz";
+        document.getElementById("message").innerText = "Rex está feliz!";
+    } else if (hunger > 50) {
+        mood = "Faminto";
+        document.getElementById("message").innerText = "Rex está com fome!";
+    } else {
+        document.getElementById("message").innerText = "";
+    }
+}
+
+function feedDog() {
+    if (hunger > 0) {
+        hunger -= 20;
+        energy += 10;
+        updateDogInfo();
+    }
+}
+
+function letDogSleep() {
+    energy += 30;
+    updateDogInfo();
+}
+
+function playWithDog() {
+    if (energy > 20) {
+        energy -= 20;
+        mood = "Feliz";
+        updateDogInfo();
+    } else {
+        document.getElementById("message").innerText = "Rex não tem energia para brincar!";
+    }
+}
+
+function takeDogWalk() {
+    if (energy > 10) {
+        energy -= 15;
+        hunger += 10;
+        updateDogInfo();
+    } else {
+        document.getElementById("message").innerText = "Rex está cansado e não pode passear!";
+    }
+}
+
+// Inicializa as informações do cachorro
+updateDogInfo();

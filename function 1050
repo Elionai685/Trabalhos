@@ -1,0 +1,35 @@
+def identificar_cidade(ddd):
+    # Dicionário que relaciona DDDs com cidades
+    ddd_cidades = {
+        61: "Brasília",
+        71: "Salvador",
+        11: "São Paulo",
+        21: "Rio de Janeiro",
+        32: "Juiz de Fora",
+        31: "Belo Horizonte",
+        41: "Curitiba",
+        51: "Porto Alegre",
+        85: "Fortaleza",
+        27: "Vitória",
+        28: "Cachoeiro de Itapemirim",
+    }
+    
+    # Verifica se o DDD está no dicionário
+    if ddd in ddd_cidades:
+        return ddd_cidades[ddd]
+    else:
+        return "DDD nao cadastrado"
+
+# Função principal
+def main():
+    # Entrada de dados
+    ddd = int(input("Digite o DDD: "))
+    
+    # Identifica a cidade correspondente ao DDD
+    cidade = identificar_cidade(ddd)
+    
+    # Saída
+    print(cidade)
+
+# Chama a função principal
+main()

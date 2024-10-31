@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vetor com Math.random</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .output {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Vetor com Math.random</h1>
+
+    <div>
+        <label for="n1">Digite o primeiro número (0-24): </label>
+        <input type="number" id="n1" min="0" max="24">
+    </div>
+    <div>
+        <label for="n2">Digite o segundo número (0-24): </label>
+        <input type="number" id="n2" min="0" max="24">
+    </div>
+    <button onclick="processar()">Processar</button>
+
+    <div class="output" id="output"></div>
+
+    <div>
+        <label for="busca">Digite um valor para buscar no vetor: </label>
+        <input type="number" id="busca">
+        <button onclick="buscarValor()">Buscar Valor</button>
+    </div>
+    <div class="output" id="resultadoBusca"></div>
+
+    <script>
+        // Criar vetor de 25 posições com valores aleatórios
+        const vetor = Array.from({ length: 25 }, () => Math.random().toFixed(2));
+
+        function processar() {
+            const n1 = parseInt(document.getElementById('n1').value);
+            const n2 = parseInt(document.getElementById('n2').value);
+            const output = document.getElementById('output');
+
+            // Verificar se os números estão dentro do intervalo permitido
+            if ((n1 < 0 || n1 > 24) || (n2 < 0 || n2 > 24)) {
+                output.textContent = "Por favor, insira números válidos entre 0 e 24.";
+                return;
+            }
+
+            // Exibir vetor completo
+            output.textContent = `Vetor: [${vetor.join(', ')}]`;
+
+            // Calcular e exibir a soma dos valores nas posições n1 e n2
+            const soma = parseFloat(vetor[n1]) + parseFloat(vetor[n2]);
+            output.textContent += `\nSoma das posições ${n1} e ${n2}: ${soma.toFixed(2)}`;
+        }
+
+        function buscarValor() {
+            const valorBusca = parseFloat(document.getElementById('busca').value);
+            const resultadoBusca = document.getElementById('resultadoBusca');
+
+            // Verifica se o valor está presente no vetor
+            if (vetor.includes(valorBusca.toFixed(2))) {
+                resultadoBusca.textContent = `O valor ${valorBusca} está presente no vetor.`;
+            } else {
+                resultadoBusca.textContent = `O valor ${valorBusca} não está presente no vetor.`;
+            }
+        }
+    </script>
+</body>
+</html>

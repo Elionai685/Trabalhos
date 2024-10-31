@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Família Genética</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .output {
+            margin-top: 20px;
+            font-weight: bold;
+            white-space: pre-wrap; /* Preserve whitespace for nice formatting */
+        }
+        .array-item {
+            display: inline-block;
+            width: 40px; /* Width for nice alignment */
+            text-align: center;
+            border: 1px solid #ccc;
+            margin: 2px;
+            padding: 5px;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Família Genética</h1>
+    <button onclick="gerarFamilia()">Gerar Família</button>
+    <div class="output" id="output"></div>
+
+    <script>
+        function gerarFamilia() {
+            // Criar vetor pai e mãe com valores aleatórios entre 0 e 100
+            const pai = Array.from({ length: 50 }, () => Math.floor(Math.random() * 101));
+            const mae = Array.from({ length: 50 }, () => Math.floor(Math.random() * 101));
+
+            // Criar vetor filho
+            const filho = Array.from({ length: 50 }, (_, index) => {
+                return index % 2 === 0 ? pai[index] : mae[index]; // Valores pares do pai, ímpares da mãe
+            });
+
+            // Mostrar a família na página
+            mostrarFamilia(pai, mae, filho);
+        }
+
+        function mostrarFamilia(pai, mae, filho) {
+            const output = document.getElementById('output');
+            output.innerHTML = `<strong>Vetor Pai:</strong><div>${formatarVetor(pai)}</div>
+                                <strong>Vetor Mãe:</strong><div>${formatarVetor(mae)}</div>
+                                <strong>Vetor Filho:</strong><div>${formatarVetor(filho)}</div>`;
+        }
+
+        function formatarVetor(vetor) {
+            return vetor.map(num => `<span class="array-item">${num}</span>`).join('');
+        }
+    </script>
+</body>
+</html>

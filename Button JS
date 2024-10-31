@@ -1,0 +1,127 @@
+function contarAteN() {
+    const n = parseInt(prompt("Digite um número N:"));
+    let resultado = "";
+    let i = 1;
+
+    while (i <= n) {
+        resultado += i + " ";
+        i++;
+    }
+
+    document.getElementById("output").innerText = "Contagem de 1 a " + n + ": " + resultado;
+}
+
+function somarNumerosAteZero() {
+    let soma = 0;
+    let numero;
+
+    while (true) {
+        numero = parseInt(prompt("Digite um número (0 para sair)"));
+        if (numero === 0) break;
+        soma += numero;
+    }
+
+    document.getElementById("output").innerText = "Soma total: " + soma;
+}
+
+function mediaNumeros() {
+    const quantidade = parseInt(prompt("Quantos números você deseja informar?"));
+    let soma = 0;
+
+    for (let i = 0; i < quantidade; i++) {
+        const numero = parseFloat(prompt("Digite um número:"));
+        soma += numero;
+    }
+
+    const media = soma / quantidade;
+    document.getElementById("output").innerText = "Média: " + media.toFixed(2);
+}
+
+function fatorialNumero() {
+    const n = parseInt(prompt("Digite um número para calcular o fatorial:"));
+    let fatorial = 1;
+
+    for (let i = 1; i <= n; i++) {
+        fatorial *= i;
+    }
+
+    document.getElementById("output").innerText = "Fatorial de " + n + ": " + fatorial;
+}
+
+function tabelaMultiplicacao() {
+    const n = parseInt(prompt("Digite um número para ver a tabela de multiplicação:"));
+    let resultado = "";
+
+    for (let i = 1; i <= 10; i++) {
+        resultado += n + " x " + i + " = " + (n * i) + "\n";
+    }
+
+    document.getElementById("output").innerText = "Tabela de Multiplicação de " + n + ":\n" + resultado;
+}
+
+function numerosParesAteN() {
+    const n = parseInt(prompt("Digite um número N:"));
+    let resultado = "";
+
+    for (let i = 2; i <= n; i += 2) {
+        resultado += i + " ";
+    }
+
+    document.getElementById("output").innerText = "Números pares até " + n + ": " + resultado;
+}
+
+function contarAteNComPasso() {
+    const n = parseInt(prompt("Digite um número N:"));
+    const passo = parseInt(prompt("Digite o passo:"));
+    let resultado = "";
+    let i = 1;
+
+    while (i <= n) {
+        resultado += i + " ";
+        i += passo;
+    }
+
+    document.getElementById("output").innerText = "Contagem de 1 até " + n + " com passo de " + passo + ": " + resultado;
+}
+
+function mostrarNumerosImpares() {
+    const n = parseInt(prompt("Digite um número N:"));
+    let resultado = "";
+
+    for (let i = 1; i <= n; i += 2) {
+        resultado += i + " ";
+    }
+
+    document.getElementById("output").innerText = "Números ímpares até " + n + ": " + resultado;
+}
+
+function verificarMultiplos() {
+    const numero = parseInt(prompt("Digite um número:"));
+    const multiplo = parseInt(prompt("Digite outro número para verificar se é múltiplo:"));
+
+    if (numero % multiplo === 0) {
+        document.getElementById("output").innerText = numero + " é múltiplo de " + multiplo;
+    } else {
+        document.getElementById("output").innerText = numero + " não é múltiplo de " + multiplo;
+    }
+}
+
+function verificarNumeroPrimo() {
+    const n = parseInt(prompt("Digite um número para verificar se é primo:"));
+    let isPrimo = true;
+
+    if (n < 2) isPrimo = false;
+
+    for (let i = 2; i <= Math.sqrt(n); i++) {
+        if (n % i === 0) {
+            isPrimo = false;
+            break;
+        }
+    }
+
+    if (isPrimo) {
+        document.getElementById("output").innerText = n + " é um número primo.";
+    } else {
+        document.getElementById("output").innerText = n + " não é um número primo.";
+    }
+}

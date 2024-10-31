@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Número Mágico</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #28a745;
+            color: white;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        #output {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Número Mágico</h1>
+        <button onclick="startPvP()">Modo PvP</button>
+        <button onclick="startPvE()">Modo PvE</button>
+        <div id="output"></div>
+    </div>
+
+    <script>
+        let numeroMagico;
+        let tentativas = 0;
+
+        function startPvP() {
+            tentativas = 0;
+            const numero = prompt("Jogador 1, digite o número mágico (entre 1 e 100):");
+            numeroMagico = parseInt(numero);
+            if (isNaN(numeroMagico) || numeroMagico < 1 || numeroMagico > 100) {
+                alert("Número inválido! O número deve estar entre 1 e 100.");
+                return;
+            }
+            alert("Jogador 2, tente adivinhar o número mágico!");
+            adivinhar();
+        }
+
+        function startPvE() {
+            tentativas = 0;
+            numeroMagico = Math.floor(Math.random() * 100) + 1;
+            alert("Tente adivinhar o número mágico (entre 1 e 100)!");
+            adivinhar();
+        }
+
+        function adivinhar() {
+            const chute = prompt("Digite seu palpite:");
+            if (chute === null) {
+                alert("Jogo encerrado.");
+                return;
+            }
+            const palpite = parseInt(chute);
+            tentativas++;
+
+            if (isNaN(palpite)) {
+                alert("Por favor, digite um número válido.");
+                adivinhar();
+            } else if (palpite < numeroMagico) {
+                alert("Seu palpite é muito baixo!");
+                adivinhar();
+            } else if (palpite > numeroMagico) {
+                alert("Seu palpite é muito alto!");
+                adivinhar();
+            } else {
+                alert(`Parabéns! Você acertou o número mágico ${numeroMagico} em ${tentativas} tentativas!`);
+            }
+        }
+    </script>
+</body>
+<html>

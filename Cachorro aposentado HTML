@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cachorro Aposentado</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Cachorro Aposentado</h1>
+        <div id="dog-info">
+            <h2 id="dog-name">Nome: Rex</h2>
+            <p id="dog-age">Idade: 10 anos</p>
+            <p id="dog-energy">Energia: 100</p>
+            <p id="dog-hunger">Fome: 0</p>
+            <p id="dog-mood">Humor: Feliz</p>
+        </div>
+        <div class="buttons">
+            <button onclick="feedDog()">Alimentar</button>
+            <button onclick="letDogSleep()">Dormir</button>
+            <button onclick="playWithDog()">Brincar</button>
+            <button onclick="takeDogWalk()">Passear</button>
+        </div>
+        <div id="message"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+def identificar_quadrante(x, y):
+    if x > 0 and y > 0:
+        return "Q1"  # Quadrante 1
+    elif x < 0 and y > 0:
+        return "Q2"  # Quadrante 2
+    elif x < 0 and y < 0:
+        return "Q3"  # Quadrante 3
+    elif x > 0 and y < 0:
+        return "Q4"  # Quadrante 4
+
+# Função principal
+def main():
+    while True:
+        # Entrada de dados
+        x, y = map(int, input("Digite as coordenadas X e Y (separadas por espaço): ").split())
+        
+        # Verifica se pelo menos uma coordenada é nula
+        if x == 0 or y == 0:
+            break
+        
+        # Identifica o quadrante e imprime o resultado
+        quadrante = identificar_quadrante(x, y)
+        print(quadrante)
+
+# Chama a função principal
+main()

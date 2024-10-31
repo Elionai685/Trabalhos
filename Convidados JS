@@ -1,0 +1,71 @@
+let listaConvidados = [];
+
+function adicionarConvidado() {
+    const nomeInput = document.getElementById("nome").value.trim();
+    if (nomeInput === "") {
+        alert("Por favor, digite um nome.");
+        return;
+    }
+
+    const nomeLower = nomeInput.toLowerCase();
+    if (listaConvidados.includes(nomeLower)) {
+        alert("Esse nome já está na lista.");
+    } else {
+        listaConvidados.push(nomeLower);
+        document.getElementById("nome").value = ""; // Limpar o campo
+        alert("Convidado adicionado com sucesso!");
+    }
+}
+
+function exibirLista() {
+    const listaElement = document.getElementById("listaConvidados");
+    listaElement.innerHTML = ""; // Limpar lista anterior
+
+    if (listaConvidados.length === 0) {
+        listaElement.innerHTML = "<li>Nenhum convidado na lista.</li>";
+        return;
+    }
+
+    listaConvidados.forEach(nome => {
+        const li = document.createElement("li");
+        li.textContent = nome.toUpperCase(); // Exibir em letras maiúsculas
+        listaElement.appendChild(li);
+    });
+}
+
+function editarConvidado() {
+    const nomeAntigo = document.getElementById("nomeAntigo").value.trim().toLowerCase();
+    const nomeNovo = document.getElementById("nomeNovo").value.trim();
+
+    if (nomeAntigo === "" || nomeNovo === "") {
+        alert("Por favor, preencha ambos os campos.");
+        return;
+    }
+
+    const indice = listaConvidados.indexOf(nomeAntigo);
+    if (indice === -1) {
+        alert("Nome não encontrado na lista.");
+    } else {
+        listaConvidados[indice] = nomeNovo.toLowerCase();
+        document.getElementById("nomeAntigo").value = ""; // Limpar campo
+        document.getElementById("nomeNovo").value = ""; // Limpar campo
+        alert("Convidado editado com sucesso!");
+    }
+}
+
+function excluirConvidado() {
+    const nomeExcluir = document.getElementById("nomeExcluir").value.trim().toLowerCase();
+    if (nomeExcluir === "") {
+        alert("Por favor, digite um nome para excluir.");
+        return;
+    }
+
+    const indice = listaConvidados.indexOf(nomeExcluir);
+    if (indice === -1) {
+        alert("Nome não encontrado na lista.");
+    } else {
+        listaConvidados.splice(indice, 1);
+        document.getElementById("nomeExcluir").value = ""; // Limpar campo
+        alert("Convidado excluído com sucesso!");
+    }
+}

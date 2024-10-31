@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vetor de Números Aleatórios</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .output {
+            margin-top: 20px;
+            font-weight: bold;
+            white-space: pre-wrap; /* Preserve whitespace for nice formatting */
+        }
+        .array-item {
+            display: inline-block;
+            width: 40px; /* Width for nice alignment */
+            text-align: center;
+            border: 1px solid #ccc;
+            margin: 2px;
+            padding: 5px;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Vetor de Números Aleatórios</h1>
+    <button onclick="gerarVetor()">Gerar Vetor</button>
+    <div class="output" id="output"></div>
+
+    <script>
+        function gerarVetor() {
+            // Criar vetor de 50 posições com números aleatórios entre -100 e 100
+            const vetor = Array.from({ length: 50 }, () => Math.floor(Math.random() * 201) - 100);
+            
+            // Exibir vetor original
+            mostrarVetor(vetor, "Vetor Original:");
+
+            // Substituir valores negativos por 0
+            const vetorAtualizado = vetor.map(valor => (valor < 0 ? 0 : valor));
+
+            // Exibir vetor atualizado
+            mostrarVetor(vetorAtualizado, "Vetor Atualizado:");
+        }
+
+        function mostrarVetor(vetor, titulo) {
+            const output = document.getElementById('output');
+            const vetorFormatado = vetor.map(num => `<span class="array-item">${num}</span>`).join('');
+            output.innerHTML += `<strong>${titulo}</strong><div>${vetorFormatado}</div>`;
+        }
+    </script>
+</body>
+</html>

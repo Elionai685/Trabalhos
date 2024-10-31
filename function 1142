@@ -1,0 +1,11 @@
+# Função (1142);
+def main():
+    # Entrada de dados
+    N = int(input("Digite um número inteiro positivo N: "))
+    
+    # Laço para imprimir as linhas conforme o exemplo
+    for i in range(1, N + 1):
+        print(f"{i} {i**2} {i**3}")
+
+# Chama a função principal
+main()

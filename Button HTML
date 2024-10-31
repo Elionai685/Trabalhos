@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        button {
+            display: block;
+            width: 200px;
+            padding: 10px;
+            margin: 10px auto;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #output {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Funções JavaScript</h1>
+    <button onclick="contarAteN()">Contar de 1 a N</button>
+    <button onclick="somarNumerosAteZero()">Somar Números Até Zero</button>
+    <button onclick="mediaNumeros()">Média de Números</button>
+    <button onclick="fatorialNumero()">Fatorial de um Número</button>
+    <button onclick="tabelaMultiplicacao()">Tabela de Multiplicação</button>
+    <button onclick="numerosParesAteN()">Números Pares Até N</button>
+    <button onclick="contarAteNComPasso()">Contar Até N com Passo Personalizado</button>
+    <button onclick="mostrarNumerosImpares()">Mostrar Números Ímpares</button>
+    <button onclick="verificarMultiplos()">Verificar Múltiplos de um Número</button>
+    <button onclick="verificarNumeroPrimo()">Verificar Número Primo</button>
+    <div id="output"></div>
+    <script src="script.js"></script>
+</body>
+</html>
